@@ -1,0 +1,198 @@
+/* Resetting default browser styles for consistency */
+*, *::before, *::after {
+    box-sizing: border-box; /* Ensure padding and border are included in element's total width and height */
+    margin: 0;               /* Reset margins */
+    padding: 0;              /* Reset paddings */
+}
+
+body {
+    font-family: 'Bodoni Moda SC', sans-serif; /* Replace 'вашу любимую современную шрифтовую гарнитуру' with a modern font, e.g., 'Roboto', 'Inter', 'Poppins' from Google Fonts */
+    background: #000000; /* Solid black background for a more intense dark theme */
+    color: #f0f0f0;      /* Slightly off-white for better readability against black */
+    line-height: 1.6;    /* Improve text readability with better line spacing */
+    -webkit-font-smoothing: antialiased; /* Improve font rendering on macOS/iOS */
+    -moz-osx-font-smoothing: grayscale;   /* Improve font rendering on Firefox on macOS */
+    overflow-x: hidden;     /* Prevent horizontal scrollbar */
+}
+
+/* --- Grain Effect --- */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAJElEQVQYV2M0M/wHKEjLy8v/79+8efPnPzMwMHBwcMDDw8PDw8O/QD9iYFq7QJ5MAAAAAElFTkSuQmCC'); /* Very subtle grain pattern - you can replace with a more pronounced grain if desired */
+    opacity: 0.08; /* Adjust grain opacity */
+    pointer-events: none; /* Make sure grain doesn't interfere with clicks */
+    z-index: -1; /* Place grain behind all content */
+}
+
+/* --- Header Styles --- */
+header {
+    background: rgba(20, 20, 20, 0.9); /* Darker header background */
+    padding: 20px 0; /* Reduce horizontal padding and add vertical padding */
+    backdrop-filter: blur(10px); /* Keep blur effect */
+    position: sticky; /* Make header stick to top on scroll */
+    top: 0;
+    z-index: 100; /* Ensure header is above other elements */
+    text-align: center; /* Center header content */
+}
+
+header h1 {
+    font-size: 2em; /* Adjust heading size */
+    margin-bottom: 10px; /* Add space below heading */
+    font-weight: bold; /* Make heading bold */
+    letter-spacing: 0.5px; /* Slightly increase letter spacing for a modern look */
+}
+
+nav {
+    /* Navigation styles already good, maybe adjust spacing if needed */
+}
+
+nav a {
+    color: #f0f0f0;
+    margin: 0 20px; /* Slightly increase horizontal spacing in nav */
+    text-decoration: none;
+    font-weight: 500; /* Slightly lighter font weight for nav links */
+    letter-spacing: 0.3px; /* Slight letter spacing for nav links */
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+nav a:hover {
+    /* text-decoration: underline;  Consider removing underline for a cleaner look, and use text-shadow instead */
+    text-shadow: 0 0 5px rgba(150, 150, 150, 0.8); /* Subtle text shadow on hover */
+    color: #ffffff; /* Slightly brighten text on hover */
+}
+
+/* --- Main Content Styles --- */
+main {
+    padding: 60px 20px; /* Increase top padding for more space from header */
+    max-width: 960px;   /* Limit main content width for better readability on large screens */
+    margin: 0 auto;      /* Center main content on the page */
+}
+
+section {
+    margin-bottom: 60px; /* Increase bottom margin between sections */
+    padding: 30px;
+    background: rgba(20, 20, 20, 0.7); /* Darker section background, slightly transparent */
+    backdrop-filter: blur(10px); /* Blur effect for sections */
+    border-radius: 12px; /* Rounded corners for sections/cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    border: 1px solid rgba(50, 50, 50, 0.5); /* Very subtle border for definition */
+}
+
+section h2 {
+    font-size: 1.75em; /* Adjust section heading size */
+    margin-bottom: 25px;
+    color: #ffffff; /* Ensure heading color is bright */
+    font-weight: bold;
+    letter-spacing: 0.4px;
+    text-align: left; /* Align section headings to the left for better reading flow */
+}
+
+section p {
+    color: #d0d0d0; /* Slightly darker text for paragraphs */
+    text-align: left; /* Left align paragraphs for readability */
+}
+
+
+/* --- Card Styles for Notes --- */
+.notes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid layout for cards */
+    gap: 30px; /* Spacing between cards */
+}
+
+.note-card {
+    padding: 25px;
+    background: rgba(20, 20, 20, 0.8); /* Card background, slightly more opaque */
+    backdrop-filter: blur(10px); /* Card blur effect */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Slightly stronger shadow for cards */
+    border: 1px solid rgba(50, 50, 50, 0.6); /* Subtle card border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover animation */
+}
+
+.note-card:hover {
+    transform: translateY(-5px); /* Lift card slightly on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+}
+
+.note-card h3 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    color: #ffffff;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    text-align: left;
+}
+
+.note-card h4 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #bbbbbb;
+    font-weight: normal; /* Or '500' */
+    text-align: left;
+    font-style: italic; /* Make course code italic for distinction */
+}
+
+.note-card p {
+    color: #c0c0c0;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.note-card a.download-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(50, 50, 50, 0.9);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.note-card a.download-link:hover {
+    background-color: rgba(70, 70, 70, 0.9); /* Darken download button on hover */
+    transform: scale(1.05); /* Slightly scale up button on hover */
+}
+
+
+/* --- Footer Styles --- */
+footer {
+    margin-top: 80px; /* Increase top margin for footer */
+    padding: 25px 0;  /* Reduce horizontal padding and add vertical padding */
+    background: rgba(20, 20, 20, 0.9); /* Darker footer background */
+    backdrop-filter: blur(10px); /* Keep blur effect */
+    text-align: center;
+    border-top: 1px solid rgba(50, 50, 50, 0.5); /* Subtle top border for footer */
+}
+
+footer p {
+    color: #999999; /* Darker footer text color */
+    font-size: 0.9em; /* Slightly smaller footer text */
+}
+
+
+/* --- Galaxy Color Accents (Example - you can customize) --- */
+/* Example: Subtle gradient overlay on header */
+header {
+    /* You can experiment with background-image: linear-gradient(...) or radial-gradient(...) */
+    /* Example linear gradient: */
+    background-image: linear-gradient(to right, rgba(50, 20, 60, 0.2), rgba(20, 50, 70, 0.2)), rgba(20, 20, 20, 0.9); /* Subtle purple/blue gradient */
+    background-blend-mode: overlay; /* Blend gradient with the background color */
+}
+
+/* Example: Highlight color for specific elements */
+a {
+    color: #b088ff; /* Example galaxy color for links, you can adjust hue and saturation */
+}
+
+a:hover {
+    color: #d4bfff; /* Lighter galaxy color on hover */
+}
+
+/* You can add more galaxy color accents to headings, borders, etc. as needed */
